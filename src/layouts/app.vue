@@ -1,57 +1,37 @@
 <template>
-  <div>
-     
+  <div
+    class="grid md:grid-cols-[200px_1fr_auto] grid-rows-[50px_1fr_auto] w-full h-full"
+  >
+    <!-- Header -->
     <div>
-      <div class="header__icon --left" @click="drawer1 = !drawer1">
-        <i class="light-icon-menu-2"></i>
-      </div>
-
-      <LvDrawer
-        v-model="drawer1"
-        left
-        headerTitle="Title Of Header"
-        headerColor="#607c8a"
-        close
-        shadow
-        background="#fff"
-        :zIndex="1000"
-      >
-        <template #default>
-          <div class="list">
-            <div class="list-item" v-for="(item, index) in items" :key="index">
-              {{ item.name }}
-            </div>
-          </div>
-        </template>
-      </LvDrawer>
+      <TheSidebar />
     </div>
 
-    <RouterView />
+    <!-- Content -->
+    <div>
+      <RouterView />
+    </div>
+
+    <!-- Footer -->
+    <div class="row-start-3 col-start-1 col-end-3">
+      <h2 class="bg-cyan-100">FOOTER</h2>
+    </div>
   </div>
 </template>
 
 <script>
 import LvDrawer from "lightvue/drawer";
-
+import { defineAsyncComponent } from "vue";
 export default {
   name: "AppLayout",
   components: {
     LvDrawer,
+    TheSidebar: defineAsyncComponent(() =>
+      import("@/components/layout/TheSidebar.vue")
+    ),
   },
   data() {
-    return {
-      items: [
-        { name: "Item 1" },
-        { name: "Item 2" },
-        { name: "Item 3" },
-        { name: "Item 3" },
-        { name: "Item 4" },
-        { name: "Item 5" },
-        { name: "Item 6" },
-        { name: "Item 7" },
-      ],
-      drawer1: true,
-    };
+    return {};
   },
 };
 </script>
