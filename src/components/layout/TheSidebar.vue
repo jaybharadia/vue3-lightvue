@@ -39,6 +39,7 @@
 
 <script>
 import LvDrawer from "lightvue/drawer";
+
 export default {
   components: {
     LvDrawer,
