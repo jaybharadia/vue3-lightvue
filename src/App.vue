@@ -1,27 +1,17 @@
 <script setup>
 import { RouterView } from "vue-router";
+import { ref } from "vue";
+import ExtensionOptions from "@/components/ExtensionOptions.vue";
 
-import { watch, ref } from "vue";
-import { useExtension } from "@/composables/use-extension.js";
-
-const type = ref("panel");
-
-const name = ref("input-code");
-
-const extensionInfo = useExtension(type, name);
+const name = ref("input-multiline");
+const type = ref("display");
 </script>
 
 <template>
   <div class="h-screen w-screen">
     <RouterView />
 
-    <button
-      type="button"
-      style="padding: 20px; background: #222"
-      @click="name = 'input-area'"
-    >
-      Update Data
-    </button>
+    <ExtensionOptions :type="type" :name="name" />
 
     <VueTable />
   </div>
