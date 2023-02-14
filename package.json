@@ -2,6 +2,7 @@
   "name": "vue3-lightvue",
   "version": "0.0.0",
   "private": true,
+  "prettier": "prettier-config-jaybharadia",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
